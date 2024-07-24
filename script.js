@@ -107,7 +107,7 @@ fetch('https://fakestoreapi.com/products/')
         products.map((e) => {
             let cardBox = document.createElement('div');
             cardBox.classList.add('cardBox');
-            cardBox.innerHTML = `                <button class='add'>+ Add Item</button>
+            cardBox.innerHTML = `<button class='add'>+ Add Item</button>
         <div class="imageBox">
                     <img src="${e.image}" alt="">
                 </div>
@@ -150,12 +150,12 @@ function addToCart() {
                 cartArray.push(products[products.findIndex(e => e.id == proId)])
                 cartArray[cartArray.findIndex((e) => e.id == proId)].quanitiy = 1;
                 let newAddedItem = cartArray[cartArray.findIndex((e) => e.id == proId)];
-                console.log(cartArray);
+                // console.log(cartArray);
                 showInCart(newAddedItem);
             }
 
             totalPrice = cartArray.reduce((accumlator, product) => accumlator + (product.price * product.quanitiy), 0)
-            totalAmount.innerHTML = totalPrice
+            totalAmount.innerHTML = Math.floor(totalPrice)
         }
     })
 }
